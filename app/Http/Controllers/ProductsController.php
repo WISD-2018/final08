@@ -43,6 +43,12 @@ class ProductsController extends Controller
         Product::destroy($id);
         return redirect()->route('product.show');
     }
-
+    public function buy($id)
+    {
+        $products=Product::find($id);
+        $data=['products'=>$products];
+        Product::destroy($id);
+        return view('BuyProduct', $data);
+    }
 
 }

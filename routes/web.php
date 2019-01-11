@@ -20,6 +20,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/001', 'UsersController@index');
+
+/*
+|product相關
+|
+*/
 Route::get('/002',['as' => 'product.show', 'uses' => 'ProductsController@productIndex']);
 Route::get('/003', 'ProductsController@create');
 
@@ -28,3 +33,15 @@ Route::get('product/{id}/edit', ['as' => 'product.edit'  , 'uses' => 'ProductsCo
 
 Route::patch('product/{id}', ['as' => 'product.update'  , 'uses' => 'ProductsController@update']);
 Route::delete('product/{id}', ['as' => 'product.destroy', 'uses' => 'ProductsController@destroy']);
+
+
+
+
+/*
+|order相關
+|
+*/
+Route::get('/004', 'OrderController@create');
+Route::get('/005',['as' => 'order.show', 'uses' => 'OrdersController@index']);
+Route::get('product/{id}/buy', ['as' => 'product.buy'  , 'uses' => 'ProductsController@buy']);
+Route::post('order', ['as' => 'order.store', 'uses' => 'OrdersController@store']);

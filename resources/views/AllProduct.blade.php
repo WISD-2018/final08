@@ -18,7 +18,7 @@
 
 
                     </td>
-
+                    <td><a href="{{route('product.buy',$product->id)}}">買</a></td>
                 </table>
 
             </tr>
