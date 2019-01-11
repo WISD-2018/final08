@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
+use App\Product;
 class UsersController extends Controller
 {
     /**
@@ -13,7 +14,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $users	=User::orderBy('name',	'DESC')->get();
+        $data	=	['users'	=> $users];
+        return	view('ShowUser',	$data);
     }
 
     /**

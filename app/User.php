@@ -5,7 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use app\Product;
+use app\Order;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -27,4 +28,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $table = 'users';
+
+
+    public $timestamps = false;
+
+    public  function  products(){
+        return $this->hasMany(Product::class);
+    }
+
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
 }
