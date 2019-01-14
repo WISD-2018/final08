@@ -3,8 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \Carbon\Carbon as Carbon;
 use App\Product;
-
+use View;
+use File;
+use Auth;
+use Redirect;
+use App\Http\Requests;
+use App\Http\Requests\ProductImageRequest;
 class ProductsController extends Controller
 {
 
@@ -14,23 +20,50 @@ class ProductsController extends Controller
     {
         $products	=Product::orderBy('price',	'DESC')->get();
         $data	=	['products'	=> $products];
-        return	view('AllProduct',	$data);
+        return	view('member.product.AllProduct',	$data);
     }
 
     public function create()
     {
-        return view('AddProduct');
+        return view('member.product.AddProduct');
     }
-    public function store(Request $request)
+
+    public function store(ProductImageRequest $request)
     {
-        Product::create($request->all());
+        if(!$request->hasFile('image')){
+            return Redirect::route('product.show');
+        }
+
+        $file = $request->file('image');
+        $destinationPath = 'uploads/book';
+
+        $ext = $file -> getClientOriginalExtension();
+        $fileName = (Carbon::now()->timestamp).'.'.$ext;
+
+        $products['users_id']=$request->input('users_id');
+        $products['name']=$request->input('name');
+        $products['price']=$request->input('price');
+        $products['class']=$request->input('class');
+        $products['project']=$request->input('project');
+        $products['word']=$request->input('word');
+        $products['image']=$destinationPath.'/'.$fileName;
+        Product::create( $products);
+
+        $file->move(public_path().'/'.$destinationPath, $fileName);
+
+
+
+
         return redirect()->route('product.show');
+
+
     }
+
     public function edit($id)
     {
         $products=Product::find($id);
         $data=['products'=>$products];
-        return view('EditProduct', $data);
+        return view('member.product.EditProduct', $data);
     }
     public function update(Request $request,$id)
     {

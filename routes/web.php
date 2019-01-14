@@ -26,7 +26,9 @@ Route::get('/001', 'UsersController@index');
 |
 */
 Route::get('/002',['as' => 'product.show', 'uses' => 'ProductsController@productIndex']);
-Route::get('/003', 'ProductsController@create');
+Route::get('/003', ['as' => 'product.add','uses' =>'ProductsController@create']);
+
+Route::get('/member', ['as' => 'member','uses' =>'UsersController@memberIndex']);
 
 Route::post('product', ['as' => 'product.store', 'uses' => 'ProductsController@store']);
 Route::get('product/{id}/edit', ['as' => 'product.edit'  , 'uses' => 'ProductsController@edit']);
