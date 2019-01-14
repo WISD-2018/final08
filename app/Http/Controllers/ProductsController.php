@@ -17,8 +17,8 @@ class ProductsController extends Controller
 
 
     public	function productIndex()
-    {
-        $products	=Product::orderBy('price',	'DESC')->get();
+    { $user = Auth::user();
+        $products	=Product::where('users_id',$user->id)->orderBy('price',	'DESC')->get();
         $data	=	['products'	=> $products];
         return	view('member.product.AllProduct',	$data);
     }
@@ -66,9 +66,26 @@ class ProductsController extends Controller
         return view('member.product.EditProduct', $data);
     }
     public function update(Request $request,$id)
-    {
-        $products=Product::find($id);
-        $products->update($request->all());
+    {  $file = $request->file('image');
+        $destinationPath = 'uploads/book';
+        $ext = $file -> getClientOriginalExtension();
+        $fileName = (Carbon::now()->timestamp).'.'.$ext;
+
+        $products['users_id']=$request->input('users_id');
+        $products['name']=$request->input('name');
+        $products['price']=$request->input('price');
+        $products['class']=$request->input('class');
+        $products['project']=$request->input('project');
+        $products['word']=$request->input('word');
+        $products['image']=$destinationPath.'/'.$fileName;
+
+
+        $product=Product::find($id);
+
+        $product->update($products);
+
+        $file->move(public_path().'/'.$destinationPath, $fileName);
+
         return redirect()->route('product.show');
     }
     public function destroy($id)

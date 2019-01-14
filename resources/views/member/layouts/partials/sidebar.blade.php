@@ -41,7 +41,7 @@
                 <a href="{{ route('product.show') }}"><i class="fa fa-fw fa-edit"></i> 書本管理</a>
             </li>
             <li>
-                <a href="{{ route('product.show') }}"><i class="fa fa-fw fa-reorder"></i> 買書紀錄</a>
+                <a href="{{ route('order.show') }}"><i class="fa fa-fw fa-reorder"></i> 購買紀錄</a>
             </li>
         </ul>
     </div>

@@ -1,50 +1,77 @@
-<form action="/product/{{$products->id}}" method="POST" role="form">
-    {{ csrf_field() }}
-    {{ method_field('PATCH') }}
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <input type="id" class="form-control" placeholder="id" name="id"  value="{{$products->id}}">
-        </div>
-    </div>
-    <br>
+@extends('member.layouts.master')
 
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <input type="user_id" class="form-control" placeholder="user_id" name="user_id" value="{{$products->users_id}}">
-        </div>
-    </div>
-    <br>
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <input type="name" class="form-control" placeholder="name" name="name"  value="{{$products->name}}">
-        </div>
-    </div>
-    <br>
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <input type="price" class="form-control" placeholder="價格" name="price" value="{{$products->price}}">
-        </div>
-    </div>
-    <br>
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <input type="class" class="form-control" placeholder="類別" name="class" value="{{$products->class}}">
-        </div>
-    </div>
-    <br>
+@section('title', '修改本書')
 
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <input type="project" class="form-control" placeholder="項目" name="project" value="{{$products->project}}">
+@section('content')
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                修改本書 <small>請輸入修改內容</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active">
+                    <i class="fa fa-edit"></i> 書本管理
+                </li>
+            </ol>
         </div>
     </div>
-    <br>
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <input type="word" class="form-control" placeholder="說明" name="word" value="{{$products->word}}">
+    <!-- /.row -->
+
+    @include('member.layouts.partials.validation')
+
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-12">
+
+
+            <form action="/product/{{$products->id}}" method="POST" role="form" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                {{ method_field('PATCH') }}
+                <div class="form-group">
+                    <label>user_id：</label>
+                    <input name="users_id" class="form-control"  value="{{ Auth::user()->id }}">
+                </div>
+                <div class="form-group">
+                    <label>書名：</label>
+                    <input name="name" class="form-control"  value="{{$products->name}}" >
+                </div>
+                <div class="form-group">
+                    <label>價格：</label>
+                    <input name="price" class="form-control" value="{{$products->price}}" >
+                </div>
+                <div class="form-group">
+                    <label>class：</label>
+                    <input name="class" class="form-control"  value="{{$products->class}}">
+                </div>
+                <div class="form-group">
+                    <label>project：</label>
+                    <input name="project" class="form-control" value="{{$products->project}}">
+                </div>
+                <div class="form-group">
+                    <label>說明：</label>
+                    <textarea name="word" class="form-control" rows="3" >{{$products->word}}</textarea>
+                </div>
+                <div class="form-group" style="padding-top:10px;">
+                    <label for="image">換圖片</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+
+                    <p class="help-block">圖片檔 ( jpeg, png, bmp, gif, svg ) </p>
+                </div>
+
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success">修改</button>
+                </div>
+
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+
+            </form>
         </div>
     </div>
-    <div class="form-group col-xs-12">
-        <input type="submit" value="修改" >
-    </div>
-</form>
+    <!-- /.row -->
+@endsection
+
+
