@@ -31,7 +31,7 @@
                 {{ method_field('PATCH') }}
                 <div class="form-group">
                     <label>user_id：</label>
-                    <input name="users_id" class="form-control"  value="{{ Auth::user()->id }}">
+                    <input name="users_id" class="form-control"  value="{{ Auth::user()->id }}" readonly>
                 </div>
                 <div class="form-group">
                     <label>書名：</label>
@@ -42,11 +42,11 @@
                     <input name="price" class="form-control" value="{{$products->price}}" >
                 </div>
                 <div class="form-group">
-                    <label>class：</label>
+                    <label>科目：</label>
                     <input name="class" class="form-control"  value="{{$products->class}}">
                 </div>
                 <div class="form-group">
-                    <label>project：</label>
+                    <label>學校：</label>
                     <input name="project" class="form-control" value="{{$products->project}}">
                 </div>
                 <div class="form-group">

@@ -7,11 +7,11 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                新增文章 <small>請輸入文章內容</small>
+                上架書本 <small>請輸入書本內容</small>
             </h1>
             <ol class="breadcrumb">
                 <li class="active">
-                    <i class="fa fa-edit"></i> 文章管理
+                    <i class="fa fa-edit"></i> 書本管理管理
                 </li>
             </ol>
         </div>
@@ -31,7 +31,7 @@
 
                 <div class="form-group">
                     <label>user_id：</label>
-                    <input name="users_id" class="form-control"  value="{{ Auth::user()->id }}">
+                    <input name="users_id" class="form-control"  value="{{ Auth::user()->id }}" readonly>
                 </div>
                 <div class="form-group">
                     <label>書名：</label>
@@ -41,14 +41,30 @@
                     <label>價格：</label>
                     <input name="price" class="form-control" placeholder="請輸入價格" >
                 </div>
+
                 <div class="form-group">
-                    <label>class：</label>
-                    <input name="class" class="form-control" placeholder="請輸入class" >
+                    <label>學校：</label><br>
+                    <Select name=project style="width: 300px;" >
+                        <Option Value="勤益科技大學">勤益科技大學</Option>
+                        <Option Value="中臺科技大學">中臺科技大學</Option>
+                        <Option Value="東海大學">東海大學</Option>
+                        <Option Value="其他">其他</Option>
+                    </Select>
                 </div>
                 <div class="form-group">
-                    <label>project：</label>
-                    <input name="project" class="form-control" placeholder="請輸入project" >
+                    <label>科目：</label><br>
+                <Select name=class style="width: 300px;" >
+                    <Option Value="數學">數學</Option>
+                    <Option Value="國文">國文</Option>
+                    <Option Value="國文">英文</Option>
+                    <Option Value="計算機概論">計算機概論</Option>
+                    <Option Value="統計學">統計學</Option>
+                    <Option Value="其他">其他</Option>
+                </Select>
                 </div>
+
+
+
                 <div class="form-group">
                     <label>說明：</label>
                     <textarea name="word" class="form-control" rows="3"></textarea>
