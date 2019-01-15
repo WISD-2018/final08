@@ -31,7 +31,7 @@
 
                 <div class="form-group">
                     <label>user_id：</label>
-                    <input name="users_id" class="form-control"  value="{{ Auth::user()->id }}" readonly>
+                    <input name="users_id" class="form-control" style="border: 0; background-color:white" value="{{ Auth::user()->id }}"  readonly >
                 </div>
                 <div class="form-group">
                     <label>書名：</label>

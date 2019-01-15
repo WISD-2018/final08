@@ -16,6 +16,15 @@
             </ol>
         </div>
     </div>
+    <style type="text/css">
+        input {border:1px solid #c00;}
+        input {star : expression(
+expression(
+expression(
+expression(
+onmouseover=function(){this.style.borderColor="#ffffff"},
+onmouseout=function(){this.style.borderColor="#ffffff"}))))}
+    </style>
     <!-- /.row -->
 
     @include('member.layouts.partials.validation')

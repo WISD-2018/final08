@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Product;
+use Auth;
 class UsersController extends Controller
 {
     /**
@@ -20,8 +21,12 @@ class UsersController extends Controller
     }
     public function memberIndex()
     {
-
+        if (Auth::check()) {
         return	view('member.index');
+        }
+        else {
+            return redirect()->route('login');
+        }
     }
 
     /**

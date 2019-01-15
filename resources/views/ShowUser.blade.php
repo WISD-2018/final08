@@ -18,4 +18,3 @@
 
     <p>
 @endforeach
-       現在使用者姓名 -> {{ Auth::user()->name }} <span class="caret"></span>

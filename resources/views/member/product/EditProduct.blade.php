@@ -42,12 +42,24 @@
                     <input name="price" class="form-control" value="{{$products->price}}" >
                 </div>
                 <div class="form-group">
-                    <label>科目：</label>
-                    <input name="class" class="form-control"  value="{{$products->class}}">
+                    <label>學校：</label><br>
+                    <Select name=project style="width: 300px;" >
+                        <Option Value="勤益科技大學">勤益科技大學</Option>
+                        <Option Value="中臺科技大學">中臺科技大學</Option>
+                        <Option Value="東海大學">東海大學</Option>
+                        <Option Value="其他">其他</Option>
+                    </Select>
                 </div>
                 <div class="form-group">
-                    <label>學校：</label>
-                    <input name="project" class="form-control" value="{{$products->project}}">
+                    <label>科目：</label><br>
+                    <Select name=class style="width: 300px;" >
+                        <Option Value="數學">數學</Option>
+                        <Option Value="國文">國文</Option>
+                        <Option Value="國文">英文</Option>
+                        <Option Value="計算機概論">計算機概論</Option>
+                        <Option Value="統計學">統計學</Option>
+                        <Option Value="其他">其他</Option>
+                    </Select>
                 </div>
                 <div class="form-group">
                     <label>說明：</label>
