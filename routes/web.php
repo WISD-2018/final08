@@ -36,7 +36,7 @@ Route::get('product/{id}/edit', ['as' => 'product.edit'  , 'uses' => 'ProductsCo
 Route::patch('product/{id}', ['as' => 'product.update'  , 'uses' => 'ProductsController@update']);
 Route::delete('product/{id}', ['as' => 'product.destroy', 'uses' => 'ProductsController@destroy']);
 
-
+Route::get('/Product',['as' => 'product.all', 'uses' => 'ProductsController@all']);
 
 
 /*
@@ -47,4 +47,8 @@ Route::get('/004', 'OrderController@create');
 Route::get('/MemberOrder',['as' => 'order.show', 'uses' => 'OrdersController@index']);
 Route::get('product/{id}/buy', ['as' => 'product.buy'  , 'uses' => 'ProductsController@buy']);
 Route::post('order', ['as' => 'order.store', 'uses' => 'OrdersController@store']);
+
+
+//搜尋
+Route::get('search/{id}', ['as' => 'product.search'  , 'uses' => 'ProductsController@search']);
 

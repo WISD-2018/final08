@@ -34,6 +34,12 @@
                 position: relative;
             }
 
+            .top {
+                position: absolute;
+                left: 20px;
+                top: 18px;
+            }
+
             .top-right {
                 position: absolute;
                 right: 10px;
@@ -66,12 +72,16 @@
     <body>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-            <a class="navbar-brand" >二手書交易平台</a>
+
             <form class="navbar-form navbar-left" >
-                <div class="form-group">
-                    <input type="text" class="form-control" name="keyword" placeholder="搜尋">
+                    <div class="form-group.top">
+
+                            <a class="navbar-brand" >二手書交易平台</a>
+                            <input type="text" class="form-control" name="keyword" placeholder="搜尋">
+
+                            <button type="submit" class="btn btn-default" >搜尋</button>
+
                 </div>
-                <button type="submit" class="btn btn-default" >搜尋</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
                 @if (Route::has('login'))
@@ -100,7 +110,7 @@
                 </div>
 
                 <div class="links">
-                    <a>所有書籍</a>
+                    <a href="{{ route('product.all') }}">所有書籍</a>
                     <a>找查書籍</a>
                     <a href="{{ route('member') }}">會員中心</a>
                     <a>系統公告</a>
