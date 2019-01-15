@@ -10,7 +10,7 @@ class Order extends Model
     protected $table = 'orders';
 
     protected $fillable = [
-        'quantity'
+        'quantity','users_id','total','products_id',
     ];
 
     public $timestamps = false;

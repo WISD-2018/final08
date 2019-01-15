@@ -1,35 +1,65 @@
-<form action="{{ route('order.store') }}" method="POST" role="form">
-    {{ csrf_field() }}
+@extends('member.layouts.master')
 
-請確認你的購買資訊<br>
-  書名--  {{$products->name}}<br>
-    class-- {{$products->class}}<br>
-    project-- {{$products->project}}<br>
-    word-- {{$products->word}}
+@section('title', '確認你的購買資訊')
 
-    <br>
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            users_id <input type="users_id" class="form-control" placeholder="users_id" name="users_id" value="{{ Auth::user()->id }}">
+@section('content')
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                確認你的購買資訊 <small>請確認你的購買資訊</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active">
+                    <i class="fa fa-edit"></i> 確認你的購買資訊
+                </li>
+            </ol>
         </div>
     </div>
-    <br>
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            products_id <input type="products_id" class="form-control" placeholder="products_id" name="products_id"  value="{{$products->id}}">
+    <!-- /.row -->
+
+    @include('member.layouts.partials.validation')
+
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <labe3>請確認你的購買資訊</labe3><br>
+            <labe2>書名--  {{$products->name}}</labe2><br>
+
+            <labe2>科目-- {{$products->class}}</labe2><br>
+
+            <labe2>學校-- {{$products->project}}</labe2><br>
+            <form action="{{ route('order.store') }}" method="POST" role="form">
+                {{ csrf_field() }}
+
+
+                <div class="form-group">
+                    <label>user_id：</label>
+                    <input name="users_id" class="form-control"  value="{{ Auth::user()->id }}" readonly>
+                </div>
+                <div class="form-group">
+                    <label>products_id：</label>
+                    <input name="products_id" class="form-control"  value="{{$products->id}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label>價格：</label>
+                    <input name="total" class="form-control"  value="{{$products->price}}" readonly>
+                </div>
+
+
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success">確認</button>
+                </div>
+
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+
+            </form>
         </div>
     </div>
-    <br>
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            價格<input type="total" class="form-control" placeholder="價格" name="total" value="{{$products->price}}">
-        </div>
-    </div>
-    <br>
+    <!-- /.row -->
+@endsection
 
 
-
-    <div class="form-group col-xs-12">
-        <input type="submit" value="確定" >
-    </div>
-</form>

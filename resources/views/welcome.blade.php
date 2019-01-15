@@ -102,7 +102,7 @@
                 <div class="links">
                     <a>所有書籍</a>
                     <a>找查書籍</a>
-                    <a>新增販售書籍</a>
+                    <a href="{{ route('member') }}">會員中心</a>
                     <a>系統公告</a>
 
                 </div>

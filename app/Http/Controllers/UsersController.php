@@ -18,6 +18,11 @@ class UsersController extends Controller
         $data	=	['users'	=> $users];
         return	view('ShowUser',	$data);
     }
+    public function memberIndex()
+    {
+
+        return	view('member.index');
+    }
 
     /**
      * Show the form for creating a new resource.

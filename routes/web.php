@@ -25,8 +25,10 @@ Route::get('/001', 'UsersController@index');
 |product相關
 |
 */
-Route::get('/002',['as' => 'product.show', 'uses' => 'ProductsController@productIndex']);
-Route::get('/003', 'ProductsController@create');
+Route::get('/MemberProduct',['as' => 'product.show', 'uses' => 'ProductsController@productIndex']);
+Route::get('/ProductCreate', ['as' => 'product.add','uses' =>'ProductsController@create']);
+
+Route::get('/Member', ['as' => 'member','uses' =>'UsersController@memberIndex']);
 
 Route::post('product', ['as' => 'product.store', 'uses' => 'ProductsController@store']);
 Route::get('product/{id}/edit', ['as' => 'product.edit'  , 'uses' => 'ProductsController@edit']);
@@ -42,7 +44,7 @@ Route::delete('product/{id}', ['as' => 'product.destroy', 'uses' => 'ProductsCon
 |
 */
 Route::get('/004', 'OrderController@create');
-Route::get('/005',['as' => 'order.show', 'uses' => 'OrdersController@index']);
+Route::get('/MemberOrder',['as' => 'order.show', 'uses' => 'OrdersController@index']);
 Route::get('product/{id}/buy', ['as' => 'product.buy'  , 'uses' => 'ProductsController@buy']);
 Route::post('order', ['as' => 'order.store', 'uses' => 'OrdersController@store']);
 
