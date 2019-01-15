@@ -118,4 +118,21 @@ class ProductsController extends Controller
         return View::make('SearchProduct',['products'=>$products,'keyword'=>$keyword]);
     }
 
+    public	function class()
+    {
+        return	view('ProductClass');
+    }
+
+    public	function class2()
+    {
+        $subject="";
+        $school="";
+        $subject->input('subject');
+        $school->input('school');
+        $products	=Product::where('class'==$subject && 'project'==$school);
+        $data	=	['products'	=> $products];
+        return	view('ProductClass2',$data);
+    }
+
+
 }

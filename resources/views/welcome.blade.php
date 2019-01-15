@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>二手書交易平台</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -73,14 +73,11 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
 
-            <form class="navbar-form navbar-left" >
-                    <div class="form-group.top">
-
-                            <a class="navbar-brand" >二手書交易平台</a>
-                            <input type="text" class="form-control" name="keyword" placeholder="搜尋">
-
-                            <button type="submit" class="btn btn-default" >搜尋</button>
-
+            <form class="navbar-form navbar-left"  >
+                <div class="form-group">
+                    <a class="navbar-brand" >二手書交易平台</a>
+                    <input type="text" class="form-control" name="keyword" placeholder="搜尋">
+                    <button type="submit"  href="{{ route('product.search') }}">搜尋</button>
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
@@ -111,7 +108,7 @@
 
                 <div class="links">
                     <a href="{{ route('product.all') }}">所有書籍</a>
-                    <a>找查書籍</a>
+                    <a href ="{{ route('product.class') }}">找查書籍</a>
                     <a href="{{ route('member') }}">會員中心</a>
                     <a>系統公告</a>
 
