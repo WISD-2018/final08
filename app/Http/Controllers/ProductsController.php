@@ -14,8 +14,6 @@ use App\Http\Requests\ProductImageRequest;
 class ProductsController extends Controller
 {
 
-
-
     public	function productIndex()
     { $user = Auth::user();
         $products	=Product::where('users_id',$user->id)->orderBy('price',	'DESC')->get();
@@ -99,6 +97,18 @@ class ProductsController extends Controller
         $data=['products'=>$products];
         Product::destroy($id);
         return view('BuyProduct', $data);
+
+    }
+
+    public function search()
+    {
+        if(!Request::has('keyword')){
+            return Redirect::back();
+        }
+        $keyword = Request::get('keyword');
+
+        $products = Product::where('name','LIKE',"%$keyword%");
+        return View::make('SearchProduct',['products'=>$products,'keyword'=>$keyword]);
     }
 
 }

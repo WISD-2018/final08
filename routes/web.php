@@ -47,3 +47,4 @@ Route::get('/004', 'OrderController@create');
 Route::get('/MemberOrder',['as' => 'order.show', 'uses' => 'OrdersController@index']);
 Route::get('product/{id}/buy', ['as' => 'product.buy'  , 'uses' => 'ProductsController@buy']);
 Route::post('order', ['as' => 'order.store', 'uses' => 'OrdersController@store']);
+
