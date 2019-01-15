@@ -73,11 +73,11 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
 
-            <form class="navbar-form navbar-left"  >
+            <form class="navbar-form navbar-left"  action="{{ route('product.search') }}" >
                 <div class="form-group">
                     <a class="navbar-brand" >二手書交易平台</a>
                     <input type="text" class="form-control" name="keyword" placeholder="搜尋">
-                    <button type="submit"  href="{{ route('product.search') }}">搜尋</button>
+                    <button type="submit" >搜尋</button>
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">

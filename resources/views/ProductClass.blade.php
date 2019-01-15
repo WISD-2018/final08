@@ -63,10 +63,10 @@
         <label>輸入學校名稱</label>
         <input name="school" class="form-control" placeholder="請輸入學校" >
     </div>
-
+    <form   action="{{ route('product.class2') }}" >
     <div class="text-right">
-        <button type="submit" class="btn btn-success" href="{{route('project.class2')}}"> 確定 </button>
+        <button type="submit" class="btn btn-success" > 確定 </button>
     </div>
-
+    </form>
 </div>
 
