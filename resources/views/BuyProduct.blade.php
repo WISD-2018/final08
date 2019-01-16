@@ -16,15 +16,7 @@
             </ol>
         </div>
     </div>
-    <style type="text/css">
-        input {border:1px solid #c00;}
-        input {star : expression(
-expression(
-expression(
-expression(
-onmouseover=function(){this.style.borderColor="#ffffff"},
-onmouseout=function(){this.style.borderColor="#ffffff"}))))}
-    </style>
+
     <!-- /.row -->
 
     @include('member.layouts.partials.validation')
@@ -33,33 +25,34 @@ onmouseout=function(){this.style.borderColor="#ffffff"}))))}
 
     <div class="row">
         <div class="col-lg-12">
-            <labe3>請確認你的購買資訊</labe3><br>
-            <labe2>書名--  {{$products->name}}</labe2><br>
-
-            <labe2>科目-- {{$products->class}}</labe2><br>
-
-            <labe2>學校-- {{$products->project}}</labe2><br>
+            <font color="#737373" size="6" face="微軟正黑體"><b>請確認你的購買資訊</b></font><br><br>
+            <font color="#737373" size="5" face="微軟正黑體"><b>書名--  {{$products->name}}</b></font><br><br>
+            <font color="#737373" size="5" face="微軟正黑體"><b>科目-- {{$products->class}}</b></font><br><br>
+            <font color="#737373" size="5" face="微軟正黑體"><b>學校-- {{$products->project}}</b></font><br><br>
+            <font color="#737373" size="5" face="微軟正黑體"><b>價格-- {{$products->price}}</b></font><br><br>
             <form action="{{ route('order.store') }}" method="POST" role="form">
                 {{ csrf_field() }}
+                <div class="container">
+                    <div class="form-group">
+
+                        <input type="hidden" name="users_id" class="form-control"  style="border: 0; background-color:white " value="{{ Auth::user()->id }}" readonly>
+                    </div>
+                    <div class="form-group">
+
+                        <input type="hidden" name="products_id" class="form-control"  style="border: 0; background-color:white" value="{{$products->id}}" readonly>
+                    </div>
+                    <div class="form-group">
+
+                        <input type="hidden" name="total" class="form-control"  style="border: 0; background-color:white" value="{{$products->price}}" readonly>
+                    </div>
 
 
-                <div class="form-group">
-                    <label>user_id：</label>
-                    <input name="users_id" class="form-control"  value="{{ Auth::user()->id }}" readonly>
-                </div>
-                <div class="form-group">
-                    <label>products_id：</label>
-                    <input name="products_id" class="form-control"  value="{{$products->id}}" readonly>
-                </div>
-                <div class="form-group">
-                    <label>價格：</label>
-                    <input name="total" class="form-control"  value="{{$products->price}}" readonly>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success">確認</button>
+                    </div>
                 </div>
 
 
-                <div class="text-right">
-                    <button type="submit" class="btn btn-success">確認</button>
-                </div>
 
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>

@@ -77,7 +77,15 @@
                 @if (Route::has('login'))
                     <div class="top-right links">
                         @auth商品
-                            <a href="{{ url('/home') }}">Home</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('登出') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                         @else
                             <a href="{{ route('login') }}">登入</a>
 

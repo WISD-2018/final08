@@ -30,8 +30,8 @@
                 {{ csrf_field() }}
                 {{ method_field('PATCH') }}
                 <div class="form-group">
-                    <label>user_id：</label>
-                    <input name="users_id" class="form-control"  value="{{ Auth::user()->id }}" readonly>
+
+                    <input type="hidden" name="users_id" class="form-control"  value="{{ Auth::user()->id }}" readonly>
                 </div>
                 <div class="form-group">
                     <label>書名：</label>

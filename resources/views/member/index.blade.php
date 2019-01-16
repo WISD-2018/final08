@@ -12,7 +12,7 @@
 @endguest
 @extends('member.layouts.master')
 
-@section('title', '會員頁面')
+@section('title', '會員中心')
 
 @section('content')
 <!-- Page Heading -->
@@ -23,7 +23,7 @@
         </h1>
         <ol class="breadcrumb">
             <li class="active">
-                <i class="fa fa-dashboard"></i> 會員頁面
+                <i class="fa fa-dashboard"></i> 會員中心
             </li>
         </ol>
     </div>
