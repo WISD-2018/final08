@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>二手書交易平台</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -32,6 +32,12 @@
 
             .position-ref {
                 position: relative;
+            }
+
+            .top {
+                position: absolute;
+                left: 20px;
+                top: 18px;
             }
 
             .top-right {
@@ -66,12 +72,13 @@
     <body>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-            <a class="navbar-brand" >二手書交易平台</a>
-            <form class="navbar-form navbar-left" >
+
+            <form class="navbar-form navbar-left"  action="{{ route('product.search') }}" >
                 <div class="form-group">
+                    <a class="navbar-brand" >二手書交易平台</a>
                     <input type="text" class="form-control" name="keyword" placeholder="搜尋">
+                    <button type="submit" >搜尋</button>
                 </div>
-                <button type="submit" class="btn btn-default" >搜尋</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
                 @if (Route::has('login'))
@@ -108,8 +115,8 @@
                 </div>
 
                 <div class="links">
-                    <a>所有書籍</a>
-                    <a>找查書籍</a>
+                    <a href="{{ route('product.all') }}">所有書籍</a>
+                    <a href ="{{ route('product.class') }}">找查書籍</a>
                     <a href="{{ route('member') }}">會員中心</a>
                     <a>系統公告</a>
 

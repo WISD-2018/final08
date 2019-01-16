@@ -14,6 +14,13 @@ use App\Http\Requests\ProductImageRequest;
 class ProductsController extends Controller
 {
 
+    public	function all()
+    {
+        $products	=Product::orderBy('price',	'DESC')->get();
+        $data	=	['products'	=> $products];
+        return	view('AllProduct',$data);
+    }
+
     public	function productIndex()
     { $user = Auth::user();
         $products	=Product::where('users_id',$user->id)->orderBy('price',	'DESC')->get();
@@ -102,13 +109,31 @@ class ProductsController extends Controller
 
     public function search()
     {
+        /*
         if(!Request::has('keyword')){
             return Redirect::back();
         }
         $keyword = Request::get('keyword');
-
+        */
+        $keyword="";
+        $keyword ->input('name');
         $products = Product::where('name','LIKE',"%$keyword%");
         return View::make('SearchProduct',['products'=>$products,'keyword'=>$keyword]);
     }
 
+    public	function class()
+    {
+        return	view('ProductClass');
+    }
+
+    public	function class2()
+    {
+        $subject="";
+        $school="";
+        $subject->input('subject');
+        $school->input('school');
+        $products	=Product::where('class','LIKE',"%$subject%" && 'project','LIKE',"%$school%");
+        $data	=	['products'	=> $products];
+        return	view('ProductClass2',$data);
+    }
 }
