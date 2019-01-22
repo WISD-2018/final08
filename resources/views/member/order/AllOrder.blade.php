@@ -31,6 +31,7 @@
                         <th >users_id</th>
                         <th >products_id</th>
                         <th >total</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -42,6 +43,8 @@
                             <td style="text-align: center">{{$order->users_id}}</td>
                             <td style="text-align: center">{{$order->products_id}}</td>
                             <td style="text-align: center">{{$order->total}}</td>
+
+
 
                             </td>
                         </tr>

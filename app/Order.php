@@ -17,6 +17,7 @@ class Order extends Model
 
     public  function  products(){
         return $this->hasOne(Product::class);
+
     }
 
     public function users(){
