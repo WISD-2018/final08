@@ -70,6 +70,10 @@
                     <textarea name="word" class="form-control" rows="3"></textarea>
                 </div>
 
+                <div class="form-group">
+
+                    <input type="hidden" name="status" class="form-control"  style="border: 0; background-color:white " value="1" readonly>
+                </div>
                 <div class="form-group" style="padding-top:10px;">
                     <label for="image">存入圖片</label>
                     <input type="file" id="image" name="image" accept="image/*">

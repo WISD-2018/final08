@@ -10,10 +10,12 @@ class OrdersController extends Controller
 {
     public	function index()
     {$user = Auth::user();
+
         $orders	=Order::where('users_id',$user->id)->orderBy('total',	'DESC')->get();
         $data	=	['orders'	=> $orders];
         return	view('member.order.AllOrder',	$data);
     }
+
     public function create()
     {
         return view('AddOrder');

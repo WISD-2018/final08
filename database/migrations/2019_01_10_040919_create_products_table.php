@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('project');
             $table->string('image');
             $table->string('word');
+            $table->string('status');
             $table->timestamps();
         });
     }
