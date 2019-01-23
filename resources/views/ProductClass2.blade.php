@@ -39,8 +39,8 @@
         <ul class="nav navbar-nav navbar-right">
             @if (Route::has('login'))
                 <div class="top-right links">
-                    @auth商品
-                    <a href="{{ url('/home') }}">Home</a>
+                    @auth
+
                     @else
                         <a href="{{ route('login') }}">登入</a>
 

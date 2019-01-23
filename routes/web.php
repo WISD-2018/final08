@@ -51,6 +51,8 @@ Route::post('order', ['as' => 'order.store', 'uses' => 'OrdersController@store']
 
 //搜尋
 Route::get('/search', ['as' => 'product.search'  , 'uses' => 'ProductsController@search']);
+Route::get('/search2', ['as' => 'product.search2'  , 'uses' => 'ProductsController@search2']);
+
 
 Route::get('/class', ['as' => 'product.class'  , 'uses' => 'ProductsController@class']);
 Route::get('/class2', ['as' => 'product.class2'  , 'uses' => 'ProductsController@class2']);

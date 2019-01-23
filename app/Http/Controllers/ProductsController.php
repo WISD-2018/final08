@@ -73,6 +73,7 @@ class ProductsController extends Controller
     public function update(Request $request,$id)
     {  $file = $request->file('image');
         $destinationPath = 'uploads/book';
+
         $ext = $file -> getClientOriginalExtension();
         $fileName = (Carbon::now()->timestamp).'.'.$ext;
 
@@ -107,33 +108,43 @@ class ProductsController extends Controller
 
     }
 
-    public function search()
+    public function search(Request $request)
     {
         /*
         if(!Request::has('keyword')){
             return Redirect::back();
         }
         $keyword = Request::get('keyword');
-        */
-        $keyword="";
-        $keyword ->input('name');
+
+
+        $keyword =$request->input('name');
         $products = Product::where('name','LIKE',"%$keyword%");
-        return View::make('SearchProduct',['products'=>$products,'keyword'=>$keyword]);
+        return View::make('AllProduct',['products'=>$products,'keyword'=>$keyword]);
+         */
+        $products	=Product::orderBy('price',	'DESC')->get();
+        $data	=	['products'	=> $products];
+        return	view('AllProduct',$data);
     }
+
+
 
     public	function class()
     {
         return	view('ProductClass');
     }
 
-    public	function class2()
+    public	function class2(Request $request)
     {
-        $subject="";
-        $school="";
-        $subject->input('subject');
-        $school->input('school');
+        /*
+        $subject=$request->input('subject');
+        $school=$request->input('school');
+
         $products	=Product::where('class','LIKE',"%$subject%" && 'project','LIKE',"%$school%");
         $data	=	['products'	=> $products];
         return	view('ProductClass2',$data);
+        */
+        $products	=Product::orderBy('price',	'DESC')->get();
+        $data	=	['products'	=> $products];
+        return	view('AllProduct',$data);
     }
 }

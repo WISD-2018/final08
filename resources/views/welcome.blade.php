@@ -83,16 +83,19 @@
             <ul class="nav navbar-nav navbar-right">
                 @if (Route::has('login'))
                     <div class="top-right links">
-                        @auth商品
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
+                        @auth
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            {{ __('登出') }}
-                        </a>
+                                {{ __('登出') }}
+                            </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                            <a href="{{ url('/home') }}">Home</a>
+
+
                         @else
                             <a href="{{ route('login') }}">登入</a>
 
@@ -118,7 +121,6 @@
                     <a href="{{ route('product.all') }}">所有書籍</a>
                     <a href ="{{ route('product.class') }}">找查書籍</a>
                     <a href="{{ route('member') }}">會員中心</a>
-                    <a>系統公告</a>
 
                 </div>
             </div>

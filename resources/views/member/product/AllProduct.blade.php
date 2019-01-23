@@ -33,7 +33,7 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th width="40" style="text-align: center">#</th>
+
                         <th width="200" style="text-align: center">圖</th>
                         <th width="200" style="text-align: center">書名</th>
                         <th width="200" style="text-align: center">科目</th>
@@ -47,7 +47,7 @@
                     <tbody>
                     @foreach($products as $product)
                         <tr>
-                            <td><a href="{{route('product.buy',$product->id)}}">買</a></td>
+
                             <td style="text-align: center"><img src="{{$product->image}}"width="80" height="40"></td>
                             <td style="text-align: center">{{$product->name}}</td>
                             <td style="text-align: center">{{$product->class}}</td>
