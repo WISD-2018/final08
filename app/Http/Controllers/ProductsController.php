@@ -23,7 +23,7 @@ class ProductsController extends Controller
 
     public	function productIndex()
     { $user = Auth::user();
-        $products	=Product::where('users_id',$user->id)->orderBy('price',	'DESC')->get();
+        $products	=Product::where('users_id',$user->id)->where('status','1')->orderBy('price',	'DESC')->get();
         $data	=	['products'	=> $products];
         return	view('member.product.AllProduct',	$data);
     }
@@ -51,6 +51,7 @@ class ProductsController extends Controller
         $products['class']=$request->input('class');
         $products['project']=$request->input('project');
         $products['word']=$request->input('word');
+        $products['status']=$request->input('status');
         $products['image']=$destinationPath.'/'.$fileName;
         Product::create( $products);
 
@@ -82,6 +83,7 @@ class ProductsController extends Controller
         $products['price']=$request->input('price');
         $products['class']=$request->input('class');
         $products['project']=$request->input('project');
+        $products['status']=$request->input('status');
         $products['word']=$request->input('word');
         $products['image']=$destinationPath.'/'.$fileName;
 
@@ -99,16 +101,20 @@ class ProductsController extends Controller
         Product::destroy($id);
         return redirect()->route('product.show');
     }
+
     public function buy($id)
     {
         $products=Product::find($id);
+        $products->status='0';
+        $products->save();
         $data=['products'=>$products];
-        Product::destroy($id);
         return view('BuyProduct', $data);
 
     }
 
+
     public function search(Request $request)
+
     {
         /*
         if(!Request::has('keyword')){
