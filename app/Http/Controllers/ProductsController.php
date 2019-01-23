@@ -125,7 +125,7 @@ class ProductsController extends Controller
 
         //$keyword = Request::get('keyword');
         $keyword =$request->input('keyword');
-        $products = Product::where('name','LIKE',"%$keyword%");
+        $products = Product::where('name','LIKE',"%$keyword%")->get();
         $data	=	['products'	=> $products];
         return View('AllProduct',$data);
 
@@ -144,7 +144,7 @@ class ProductsController extends Controller
         $subject=$request->input('subject');
         $school=$request->input('school');
 
-        $products	=Product::where('class','LIKE',"%$subject%" && 'project','LIKE',"%$school%");
+        $products	=Product::where('class','LIKE',"%$subject%")->where('project','LIKE',"%$school%")->get();
         $data	=	['products'	=> $products];
         return	view('ProductClass2',$data);
 
