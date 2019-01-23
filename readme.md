@@ -31,7 +31,9 @@
 - 初始專案 [3A532077 賴律妏](https://github.com/3A532077)
 - 資料庫及資料表建立 [3A532077 賴律妏](https://github.com/3A532077)
 
+## 額外使用的套件或樣板
 
+會員頁面模板：[Side Bar](https://startbootstrap.com/template-overviews/simple-sidebar/)
 
 ## 系統復原步驟
 
@@ -40,11 +42,15 @@
 2. >打開cmder，切換至專案所在資料夾，cd final08
 
 3. >輸入以下命令，以復原此系統：
+
 -composer install
+
 -composer run‐script post‐root‐package‐install
+
 -composer run‐script post‐create‐project‐cmd
--開啟UwAmp，點選PHPMyAdmin，進入MySQL，建立新資料庫，名稱為final08，將final08.sql匯入(wagon\uwamp\www\final08\database\final08.sql)
-在UwAmp下，點選Apache config，選擇port 8000 ，並在Document Root 輸入{DOCUMENTPATH}/final08/public
+
+4. >開啟UwAmp，點選PHPMyAdmin，進入MySQL，建立新資料庫，名稱為final08，將final08.sql匯入(wagon\uwamp\www\final08\database\final08.sql)
+5. >在UwAmp下，點選Apache config，選擇port 8000 ，並在Document Root 輸入{DOCUMENTPATH}/final08/public
 
 ##系統使用帳號
 
