@@ -8,7 +8,7 @@
 </p>
 
 ## 二手書交易平台
-<blockquote class="imgur-embed-pub" lang="en" data-id="Bsh0OpC"><a href="//imgur.com/Bsh0OpC">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+[Imgur](https://i.imgur.com/Bsh0OpC.jpg)
 我們做一個網站讓學生可以在此網站買賣課本，想買課本的人可以利用學校科系分類機制來找到該科目的教科書，想賣課本的人將課本上架後也較容易被同校同系的學弟妹看到，增加賣出去的機會，買家賣家都可以藉由這個網站來順利完成課本的交易，節省以往在其他地方買賣課本上多浪費的時間。
 
 ##系統的主要功能
