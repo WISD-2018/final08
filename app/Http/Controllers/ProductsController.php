@@ -22,7 +22,8 @@ class ProductsController extends Controller
     }
 
     public	function productIndex()
-    { $user = Auth::user();
+    {
+        $user = Auth::user();
         $products	=Product::where('users_id',$user->id)->where('status','1')->orderBy('price',	'DESC')->get();
         $data	=	['products'	=> $products];
         return	view('member.product.AllProduct',	$data);
@@ -120,16 +121,14 @@ class ProductsController extends Controller
         if(!Request::has('keyword')){
             return Redirect::back();
         }
-        $keyword = Request::get('keyword');
+        */
 
-
-        $keyword =$request->input('name');
+        //$keyword = Request::get('keyword');
+        $keyword =$request->input('keyword');
         $products = Product::where('name','LIKE',"%$keyword%");
-        return View::make('AllProduct',['products'=>$products,'keyword'=>$keyword]);
-         */
-        $products	=Product::orderBy('price',	'DESC')->get();
         $data	=	['products'	=> $products];
-        return	view('AllProduct',$data);
+        return View('AllProduct',$data);
+
     }
 
 
@@ -141,16 +140,13 @@ class ProductsController extends Controller
 
     public	function class2(Request $request)
     {
-        /*
+
         $subject=$request->input('subject');
         $school=$request->input('school');
 
         $products	=Product::where('class','LIKE',"%$subject%" && 'project','LIKE',"%$school%");
         $data	=	['products'	=> $products];
         return	view('ProductClass2',$data);
-        */
-        $products	=Product::orderBy('price',	'DESC')->get();
-        $data	=	['products'	=> $products];
-        return	view('AllProduct',$data);
+
     }
 }

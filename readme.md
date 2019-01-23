@@ -8,7 +8,7 @@
 </p>
 
 ## 二手書交易平台
-
+https://imgur.com/Bsh0OpC
 我們做一個網站讓學生可以在此網站買賣課本，想買課本的人可以利用學校科系分類機制來找到該科目的教科書，想賣課本的人將課本上架後也較容易被同校同系的學弟妹看到，增加賣出去的機會，買家賣家都可以藉由這個網站來順利完成課本的交易，節省以往在其他地方買賣課本上多浪費的時間。
 
 ##系統的主要功能
@@ -19,7 +19,8 @@
 - 修改書籍 Route::get('product/{id}/edit') [3A532065 張宏瑋](https://github.com/3A532065)
 - 買書籍 Route::get('product/{id}/buy')[3A532065 張宏瑋](https://github.com/3A532065)
 - 觀看買書紀錄 Route::get('/MemberOrder')[3A532065 張宏瑋](https://github.com/3A532065)
-
+- 搜尋書籍 Route::get('/search')[3A532077 賴律妏](https://github.com/3A532077)
+- 書籍分類 Route::get('/class')[3A532077 賴律妏](https://github.com/3A532077)
 
 
 
@@ -31,7 +32,6 @@
 
 ##額外使用的套件或樣板
 
-T The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
 ## 系統復原步驟
 
@@ -44,9 +44,8 @@ T The contribution guide can be found in the [Laravel documentation](https://lar
 -composer run‐script post‐root‐package‐install
 -composer run‐script post‐create‐project‐cmd
 開啟UwAmp，點選PHPMyAdmin，進入MySQL，建立新資料庫，名稱為final08，將final08.sql匯入(wagon\uwamp\www\final09\database\final08.sql)
-
 在UwAmp下，點選Apache config，選擇port 8000 ，並在Document Root 輸入{DOCUMENTPATH}/final08/public
 
 ##系統使用帳號
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+123456@gmail.com  密碼：123456
